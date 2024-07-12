@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PartyManager : MonoBehaviour
@@ -9,14 +10,28 @@ public class PartyManager : MonoBehaviour
 
     [SerializeField] private PartyMemberInfo defualtPartyMember;
 
+    private Vector3 playerPosition;
+    private static GameObject instance;
+
     private void Awake()
     {
-        AddMemberToPartyByName(defualtPartyMember.memberName);
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this.gameObject;
+            AddMemberToPartyByName(defualtPartyMember.memberName);
+            AddMemberToPartyByName(defualtPartyMember.memberName);
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void AddMemberToPartyByName(string memberName)
     {
-        for(int i = 0; i < allMembers.Length; ++i)
+        for (int i = 0; i < allMembers.Length; ++i)
         {
             if (allMembers[i].memberName == memberName)
             {
@@ -37,7 +52,31 @@ public class PartyManager : MonoBehaviour
 
     public List<PartyMember> GetCurrentParty()
     {
+        List<PartyMember> aliveParty = new List<PartyMember>();
+        aliveParty = currentParty;
+        for(int i = 0; i < aliveParty.Count; ++i)
+        {
+            if (aliveParty[i].currHealth <= 0)
+            {
+                aliveParty.RemoveAt(i);
+            }
+        }
         return currentParty;
+    }
+
+    public void SaveHealth(int partyMember, int health)
+    {
+        currentParty[partyMember].currHealth = health;
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        playerPosition = position;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return playerPosition;
     }
 }
 
