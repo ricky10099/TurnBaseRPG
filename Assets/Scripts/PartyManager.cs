@@ -23,7 +23,6 @@ public class PartyManager : MonoBehaviour
         {
             instance = this.gameObject;
             AddMemberToPartyByName(defualtPartyMember.memberName);
-            AddMemberToPartyByName(defualtPartyMember.memberName);
         }
 
         DontDestroyOnLoad(gameObject);
@@ -50,7 +49,7 @@ public class PartyManager : MonoBehaviour
         }
     }
 
-    public List<PartyMember> GetCurrentParty()
+    public List<PartyMember> GetAliveParty()
     {
         List<PartyMember> aliveParty = new List<PartyMember>();
         aliveParty = currentParty;
@@ -61,6 +60,11 @@ public class PartyManager : MonoBehaviour
                 aliveParty.RemoveAt(i);
             }
         }
+        return aliveParty;
+    }
+
+    public List<PartyMember> GetCurrentParty()
+    {
         return currentParty;
     }
 

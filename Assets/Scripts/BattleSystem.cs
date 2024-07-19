@@ -191,7 +191,7 @@ public class BattleSystem : MonoBehaviour
 
     private void CreatePartyEntities()
     {
-        List<PartyMember> currentParty = partyManager.GetCurrentParty();
+        List<PartyMember> currentParty = partyManager.GetAliveParty();
 
         for (int i = 0; i < currentParty.Count; ++i)
         {
