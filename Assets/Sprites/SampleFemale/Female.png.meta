@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 570ff7e563f8d824ab79c3698c90ff59
+guid: d0d521d0e01ed2044a605b9e61f519d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: claire_0
+      name: Female_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eda37d9be48d92479a817e33ef6a1ed
-      internalID: 715865459
+      spriteID: ada442bebcd7a454fb67da6d55d9ca15
+      internalID: 492080551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_1
+      name: Female_1
       rect:
         serializedVersion: 2
         x: 32
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e005527cb9a92204ca16273e20faa7b1
-      internalID: 1527172771
+      spriteID: e8dfe3771f16cd64ab2563227431dd83
+      internalID: 1423984234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_2
+      name: Female_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d39673b74ed7580469ead49820caa617
-      internalID: -1310551167
+      spriteID: 0474c7d8e8478644aaa232c0ab49bebd
+      internalID: -749121386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_3
+      name: Female_3
       rect:
         serializedVersion: 2
         x: 0
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7de7ff264c26374bb48bf63fae3021c
-      internalID: 1794072743
+      spriteID: 745c4ccfc0ef15241b30d59353fad07d
+      internalID: 127918183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_4
+      name: Female_4
       rect:
         serializedVersion: 2
         x: 32
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f656877954c3e234683d8d277951ca73
-      internalID: 591886623
+      spriteID: ce966e166ae3a0f43bca26f83310cb6e
+      internalID: -739445986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_5
+      name: Female_5
       rect:
         serializedVersion: 2
         x: 64
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87accc3ac61166b45a140c5f7a7f47ed
-      internalID: -462828950
+      spriteID: e0e72b5d1180f85489893378b33b4e83
+      internalID: -642427460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_6
+      name: Female_6
       rect:
         serializedVersion: 2
         x: 0
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4b3266963501d84ca6b389066bf1308
-      internalID: 509128336
+      spriteID: baeb56435eaa0e5468dc48487b665b37
+      internalID: 275717187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_7
+      name: Female_7
       rect:
         serializedVersion: 2
         x: 32
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302ca1abfdd43d74d9dc5204f559ceea
-      internalID: 482709278
+      spriteID: a9b62eae6a578364ea85effcb8fb84dc
+      internalID: 1749567049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_8
+      name: Female_8
       rect:
         serializedVersion: 2
         x: 64
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8865101373e2b648b3b3d72bfaebc84
-      internalID: 1214499748
+      spriteID: d0aa57d07a99d20438653e5c786fc82e
+      internalID: -821847242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_9
+      name: Female_9
       rect:
         serializedVersion: 2
         x: 0
@@ -339,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc51137fe295da4b957851626dc9567
-      internalID: -1136685593
+      spriteID: 7c108c2cccf7d8f46b8306c81a26e360
+      internalID: 55047832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: claire_10
+      name: Female_10
       rect:
         serializedVersion: 2
         x: 32
@@ -360,8 +360,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4708974bc5f1c9a44996e68d6e88898e
-      internalID: 1219634362
+      spriteID: 066bf18142639244099b43a19412ba46
+      internalID: 1499262045
       vertices: []
       indices: 
       edges: []
@@ -377,17 +377,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      claire_0: 715865459
-      claire_1: 1527172771
-      claire_10: 1219634362
-      claire_2: -1310551167
-      claire_3: 1794072743
-      claire_4: 591886623
-      claire_5: -462828950
-      claire_6: 509128336
-      claire_7: 482709278
-      claire_8: 1214499748
-      claire_9: -1136685593
+      Female_0: 492080551
+      Female_1: 1423984234
+      Female_10: 1499262045
+      Female_2: -749121386
+      Female_3: 127918183
+      Female_4: -739445986
+      Female_5: -642427460
+      Female_6: 275717187
+      Female_7: 1749567049
+      Female_8: -821847242
+      Female_9: 55047832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
