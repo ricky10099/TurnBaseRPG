@@ -111,7 +111,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1604022993, guid: 8dff7cdf8d217cc4392551de594645da, type: 3}
+      value: {fileID: -286862541, guid: b4cb723ecd5c1364e9e9e61917befd3b, type: 3}
     attribute: m_Sprite
     path: Slime_0
     classID: 212
@@ -161,7 +161,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1604022993, guid: 8dff7cdf8d217cc4392551de594645da, type: 3}
+    - {fileID: -286862541, guid: b4cb723ecd5c1364e9e9e61917befd3b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

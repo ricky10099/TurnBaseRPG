@@ -1949,6 +1949,7 @@ MonoBehaviour:
   allMembers:
   - {fileID: 11400000, guid: 7d26fc4ec4af7fa468acfc0a013db98f, type: 2}
   - {fileID: 11400000, guid: a18f9c2b27663434293e51477ffd235c, type: 2}
+  - {fileID: 11400000, guid: 79c864418d363d94f8d43015cd6edf0e, type: 2}
   currentParty: []
   defualtPartyMember: {fileID: 11400000, guid: 7d26fc4ec4af7fa468acfc0a013db98f, type: 2}
 --- !u!4 &1453976120
