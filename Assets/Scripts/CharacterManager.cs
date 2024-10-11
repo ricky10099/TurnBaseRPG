@@ -13,7 +13,7 @@ public class CharacterManager : MonoBehaviour
     private PlayerControl playerControl;
     private List<GameObject> overworldCharacters = new List<GameObject>();
 
-    private const string PARTY_JOINED_MESSAGE = " Joined The Party!";
+    private const string PARTY_JOINED_MESSAGE = "がパーティに入りました！";
     private const string NPC_JOINABLE_TAG = "NPCJoinable";
 
     private void Awake()

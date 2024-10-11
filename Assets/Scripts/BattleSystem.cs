@@ -41,11 +41,11 @@ public class BattleSystem : MonoBehaviour
     private EnemyManager enemyManager;
     private int currentPlayer;
 
-    private const string ACTION_MESSAGE = "'s Action";
-    private const string WIN_MESSAGE = "Your party won the battle";
-    private const string LOSE_MESSAGE = "Your party has been defeated";
-    private const string SUCCESFULLY_RAN_MESSAGE = "Your party ran away";
-    private const string UNSUCCESFULLY_RAN_MESSAGE = "Your party failed to run";
+    private const string ACTION_MESSAGE = "のターン";
+    private const string WIN_MESSAGE = "バトルに勝ちました";
+    private const string LOSE_MESSAGE = "バトルに負けました";
+    private const string SUCCESFULLY_RAN_MESSAGE = "逃げました";
+    private const string UNSUCCESFULLY_RAN_MESSAGE = "逃げられない";
     private const int TURN_DURATION = 2;
     private const int RUN_CHANCE = 50;
     private const string OVERWORLD_SCENE = "OverworldScene";
@@ -110,10 +110,11 @@ public class BattleSystem : MonoBehaviour
             }
             BattleEntities currTarget = allBattlers[currAttacker.target];
             AttackAction(currAttacker, currTarget);
+            yield return new WaitForSeconds(TURN_DURATION);
 
             if (currTarget.currHealth <= 0)
             {
-                bottomText.text = string.Format("{0} defeated {1}", currAttacker.name, currTarget.name);
+                bottomText.text = string.Format("{0} が {1} を倒しました", currAttacker.name, currTarget.name);
                 yield return new WaitForSeconds(TURN_DURATION);
                 enemyBattlers.Remove(currTarget);
                 //allBattlers.Remove(currTarget);
@@ -140,7 +141,7 @@ public class BattleSystem : MonoBehaviour
 
             if (currTarget.currHealth <= 0)
             {
-                bottomText.text = string.Format("{0} defeated {1}", currAttacker.name, currTarget.name);
+                bottomText.text = string.Format("{0} が {1} を倒しました", currAttacker.name, currTarget.name);
                 yield return new WaitForSeconds(TURN_DURATION);
                 playerBattlers.Remove(currTarget);
                 //allBattlers.Remove(currTarget);
@@ -280,7 +281,7 @@ public class BattleSystem : MonoBehaviour
         currTarget.currHealth -= damage;
         currTarget.battleVisuals.PlayHitAnimation();
         currTarget.UpdateUI();
-        bottomText.text = string.Format("{0} attacks {1} for {2} damage", currAttacker.name, currTarget.name, damage);
+        bottomText.text = string.Format("{0} が {1} を攻撃し、{2} ダメージを与えました", currAttacker.name, currTarget.name, damage);
         SaveHealth();
     }
 

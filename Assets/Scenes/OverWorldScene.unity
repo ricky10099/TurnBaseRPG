@@ -1752,7 +1752,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: John joined the party.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d86b74f034350fd4b924b3c57c0b3d90, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_margin: {x: -840.8962, y: -80.90576, z: -843.006, w: -84.93448}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1210350870
@@ -2757,6 +2757,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716670587782366783, guid: 817fa8c364c1833499cd76cf11d57046,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d86b74f034350fd4b924b3c57c0b3d90,
+        type: 2}
+    - target: {fileID: 4716670587782366783, guid: 817fa8c364c1833499cd76cf11d57046,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6301030033805829586, guid: 817fa8c364c1833499cd76cf11d57046,
         type: 3}
