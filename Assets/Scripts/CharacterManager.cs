@@ -93,7 +93,7 @@ public class CharacterManager : MonoBehaviour
                 Vector3 positionToSpawn = transform.position;
                 positionToSpawn.x -= 1;
                 GameObject tempFollower = Instantiate(currentParty[i].memberOverworldVisualPrefab, positionToSpawn, Quaternion.identity);
-
+                tempFollower.GetComponent<MemberFollowAI>().enabled = true;
                 tempFollower.GetComponent<MemberFollowAI>().SetFollowDistance(i);
                 overworldCharacters.Add(tempFollower);
             }

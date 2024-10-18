@@ -6,11 +6,12 @@ public class JoinableCharacterScript : MonoBehaviour
 {
     public PartyMemberInfo memberToJoin;
     [SerializeField] private GameObject interactPrompt;
-
+    [SerializeField] private GameObject character;
     // Start is called before the first frame update
     void Start()
     {
         CheckIfJoined();
+        character = GameObject.Instantiate(memberToJoin.memberOverworldVisualPrefab, transform);
     }
 
     // Update is called once per frame

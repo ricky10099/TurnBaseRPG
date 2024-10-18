@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1363674945749445321}
   - component: {fileID: -8208320688154680567}
   m_Layer: 7
-  m_Name: TinyPinkOverWorld
+  m_Name: OwletOverWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b255a4501a3e94a4a8a050014397bd19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73a3ba792e6c67942b1f88cde51bed45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 5769776078925408081}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 16955647df89da044931bfac21472f21, type: 2}
+  m_Controller: {fileID: 9100000, guid: 42b58c3f4e4cae9489525f798b7b5ea8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

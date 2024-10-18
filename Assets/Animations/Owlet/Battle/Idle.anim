@@ -29,7 +29,7 @@ AnimationClip:
     - time: 0.75
       value: {fileID: -1292220333, guid: 4d1536ce3febfa74896778ea432aac11, type: 3}
     attribute: m_Sprite
-    path: 
+    path: TinyPink
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -41,7 +41,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 3242837507
       attribute: 0
       script: {fileID: 0}
       typeID: 212

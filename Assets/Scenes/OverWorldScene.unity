@@ -1950,8 +1950,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d26fc4ec4af7fa468acfc0a013db98f, type: 2}
   - {fileID: 11400000, guid: a18f9c2b27663434293e51477ffd235c, type: 2}
   - {fileID: 11400000, guid: 79c864418d363d94f8d43015cd6edf0e, type: 2}
+  - {fileID: 11400000, guid: 92e6fffebc71fb74c900b3c854ae74e0, type: 2}
   currentParty: []
-  defualtPartyMember: {fileID: 11400000, guid: 7d26fc4ec4af7fa468acfc0a013db98f, type: 2}
+  defualtPartyMember: {fileID: 11400000, guid: 79c864418d363d94f8d43015cd6edf0e, type: 2}
 --- !u!4 &1453976120
 Transform:
   m_ObjectHideFlags: 0
@@ -2758,6 +2759,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 404539239201828319, guid: 817fa8c364c1833499cd76cf11d57046,
+        type: 3}
+      propertyPath: memberToJoin
+      value: 
+      objectReference: {fileID: 11400000, guid: a18f9c2b27663434293e51477ffd235c,
+        type: 2}
     - target: {fileID: 4716670587782366783, guid: 817fa8c364c1833499cd76cf11d57046,
         type: 3}
       propertyPath: m_fontAsset
@@ -2774,8 +2781,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoinableCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 6668667392282273895, guid: 817fa8c364c1833499cd76cf11d57046,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6668667392282273895, guid: 817fa8c364c1833499cd76cf11d57046, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817fa8c364c1833499cd76cf11d57046, type: 3}
