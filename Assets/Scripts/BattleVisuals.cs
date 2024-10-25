@@ -7,11 +7,14 @@ using TMPro;
 public class BattleVisuals : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider expBar;
     [SerializeField] private TextMeshProUGUI levelText;
 
     private int currHealth;
     private int maxHealth;
     private int level;
+    private int exp;
+    private int maxExp;
 
     private Animator anim;
 
@@ -27,13 +30,16 @@ public class BattleVisuals : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
-    public void SetStartingValues(int currHealth, int maxHealth, int level)
+    public void SetStartingValues(int currHealth, int maxHealth, int level, int exp, int maxExp)
     {
         this.currHealth = currHealth;
         this.maxHealth = maxHealth;
         this.level = level;
+        this.exp = exp;
+        this.maxExp = maxExp;
         levelText.text = LEVEL_ABB + this.level.ToString();
         UpdateHealthBar();
+        UpdateExpBar();
     }
 
     public void ChangeHealth(int currHealth)
@@ -48,11 +54,28 @@ public class BattleVisuals : MonoBehaviour
         UpdateHealthBar();
     }
 
+    public void ChangeExp(int exp)
+    {
+        this.exp = exp;
+        if(exp >= this.maxExp)
+        {
+            this.exp = 0;
+        }
+
+        UpdateExpBar();
+    }
+
     // Update is called once per frame
     void UpdateHealthBar()
     {
         healthBar.maxValue = maxHealth;
         healthBar.value = currHealth;
+    }
+
+    void UpdateExpBar()
+    {
+        expBar.maxValue = maxExp;
+        expBar.value = exp;
     }
 
     public void PlayAttackAnimation()

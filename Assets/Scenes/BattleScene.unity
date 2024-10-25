@@ -811,6 +811,7 @@ MonoBehaviour:
   actionText: {fileID: 1311141745}
   bottomTextPopUp: {fileID: 1405843955}
   bottomText: {fileID: 1271415417}
+  mainCamera: {fileID: 1027284103}
 --- !u!4 &525279829
 Transform:
   m_ObjectHideFlags: 0
@@ -838,7 +839,7 @@ GameObject:
   m_Layer: 0
   m_Name: PartySpawn1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1024,7 +1025,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawn3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1666,7 +1667,7 @@ Transform:
   m_GameObject: {fileID: 969441080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: 0, z: -25}
+  m_LocalPosition: {x: -50.9, y: 0, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1823,7 +1824,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1854,7 +1855,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawn1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2706,7 +2707,7 @@ GameObject:
   m_Layer: 0
   m_Name: PartySpawn3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3659,7 +3660,7 @@ GameObject:
   m_Layer: 0
   m_Name: PartySpawn2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

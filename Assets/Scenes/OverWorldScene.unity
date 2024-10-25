@@ -2763,7 +2763,7 @@ PrefabInstance:
         type: 3}
       propertyPath: memberToJoin
       value: 
-      objectReference: {fileID: 11400000, guid: a18f9c2b27663434293e51477ffd235c,
+      objectReference: {fileID: 11400000, guid: 92e6fffebc71fb74c900b3c854ae74e0,
         type: 2}
     - target: {fileID: 4716670587782366783, guid: 817fa8c364c1833499cd76cf11d57046,
         type: 3}

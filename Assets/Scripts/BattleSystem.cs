@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class BattleSystem : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class BattleSystem : MonoBehaviour
     private EnemyManager enemyManager;
     private int currentPlayer;
 
+    [SerializeField] private Camera mainCamera;
+    private Vector3 originCamPosition = new Vector3(0, 2, -10);
+    private Vector3 cameraTargetPosition;
+
     private const string ACTION_MESSAGE = "のターン";
     private const string WIN_MESSAGE = "バトルに勝ちました";
     private const string LOSE_MESSAGE = "バトルに負けました";
@@ -54,6 +59,8 @@ public class BattleSystem : MonoBehaviour
     {
         partyManager = GameObject.FindFirstObjectByType<PartyManager>();
         enemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
+
+        cameraTargetPosition = originCamPosition;
 
         CreatePartyEntities();
         CreateEnemyEntities();
@@ -101,6 +108,9 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator AttackRoutine(int i)
     {
+        //mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originCamPosition, 0.1f * Time.deltaTime);
+        cameraTargetPosition = originCamPosition;
+
         if (allBattlers[i].isPlayer)
         {
             BattleEntities currAttacker = allBattlers[i];
@@ -200,7 +210,7 @@ public class BattleSystem : MonoBehaviour
             tempEntity.SetEntityValues(currentParty[i].memberName, currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].initiative, currentParty[i].strength, currentParty[i].level, true);
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].memberBattleVisualPrefab, partySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].level);
+            tempBattleVisuals.SetStartingValues(currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].level, currentParty[i].currExp, currentParty[i].maxExp);
             tempEntity.battleVisuals = tempBattleVisuals;
 
             allBattlers.Add(tempEntity);
@@ -218,7 +228,7 @@ public class BattleSystem : MonoBehaviour
             tempEntity.SetEntityValues(currentEnemies[i].enemyName, currentEnemies[i].currHealth, currentEnemies[i].maxHealth, currentEnemies[i].initiative, currentEnemies[i].strength, currentEnemies[i].level, false);
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].enemyVisualPrefab, enemySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentEnemies[i].maxHealth, currentEnemies[i].maxHealth, currentEnemies[i].level);
+            tempBattleVisuals.SetStartingValues(currentEnemies[i].maxHealth, currentEnemies[i].maxHealth, currentEnemies[i].level, 0, 0);
             tempEntity.battleVisuals = tempBattleVisuals;
 
             allBattlers.Add(tempEntity);
@@ -230,6 +240,8 @@ public class BattleSystem : MonoBehaviour
     {
         actionText.text = playerBattlers[currentPlayer].name + ACTION_MESSAGE;
         battleMenu.SetActive(true);
+        Debug.Log(currentPlayer);
+        cameraTargetPosition = partySpawnPoints[currentPlayer].position + new Vector3(0, 2.5f, -2.5f);
     }
 
 
@@ -352,7 +364,7 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, cameraTargetPosition, 2.0f * Time.deltaTime);
     }
 }
 
