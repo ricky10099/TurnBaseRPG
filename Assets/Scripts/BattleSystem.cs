@@ -25,6 +25,10 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private Transform[] partySpawnPoints;
     [SerializeField] private Transform[] enemySpawnPoints;
 
+    [Header("Attack Points")]
+    [SerializeField] private Transform[] partyAttackPoints;
+    [SerializeField] private Transform[] enemyAttackPoints;
+
     [Header("Battlers")]
     [SerializeField] private List<BattleEntities> allBattlers = new List<BattleEntities>();
     [SerializeField] private List<BattleEntities> enemyBattlers = new List<BattleEntities>();
@@ -207,7 +211,8 @@ public class BattleSystem : MonoBehaviour
         for (int i = 0; i < currentParty.Count; ++i)
         {
             BattleEntities tempEntity = new BattleEntities();
-            tempEntity.SetEntityValues(currentParty[i].memberName, currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].initiative, currentParty[i].strength, currentParty[i].level, true);
+            tempEntity.SetEntityValues(currentParty[i].memberName, currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].initiative, currentParty[i].strength, currentParty[i].level, true, i);
+            Debug.Log("party " + i);
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].memberBattleVisualPrefab, partySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
             tempBattleVisuals.SetStartingValues(currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].level, currentParty[i].currExp, currentParty[i].maxExp);
@@ -225,7 +230,8 @@ public class BattleSystem : MonoBehaviour
         for (int i = 0; i < currentEnemies.Count; ++i)
         {
             BattleEntities tempEntity = new BattleEntities();
-            tempEntity.SetEntityValues(currentEnemies[i].enemyName, currentEnemies[i].currHealth, currentEnemies[i].maxHealth, currentEnemies[i].initiative, currentEnemies[i].strength, currentEnemies[i].level, false);
+            tempEntity.SetEntityValues(currentEnemies[i].enemyName, currentEnemies[i].currHealth, currentEnemies[i].maxHealth, currentEnemies[i].initiative, currentEnemies[i].strength, currentEnemies[i].level, false, i);
+            Debug.Log("enemy " + i);
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].enemyVisualPrefab, enemySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
             tempBattleVisuals.SetStartingValues(currentEnemies[i].maxHealth, currentEnemies[i].maxHealth, currentEnemies[i].level, 0, 0);
@@ -289,10 +295,12 @@ public class BattleSystem : MonoBehaviour
     private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
     {
         int damage = currAttacker.strength;
+        currAttacker.battleVisuals.GetComponentInParent<GameObject>().transform.position = partyAttackPoints[currTarget.pointIndex].position;
         currAttacker.battleVisuals.PlayAttackAnimation();
         currTarget.currHealth -= damage;
         currTarget.battleVisuals.PlayHitAnimation();
         currTarget.UpdateUI();
+        currAttacker.battleVisuals.GetComponentInParent<GameObject>().transform.position = partySpawnPoints[currAttacker.pointIndex].position;
         bottomText.text = string.Format("{0} Ç™ {1} ÇçUåÇÇµÅA{2} É_ÉÅÅ[ÉWÇó^Ç¶Ç‹ÇµÇΩ", currAttacker.name, currTarget.name, damage);
         SaveHealth();
     }
@@ -388,8 +396,9 @@ public class BattleEntities
     public bool isPlayer;
     public BattleVisuals battleVisuals;
     public int target;
+    public int pointIndex;
 
-    public void SetEntityValues(string name, int currHealth, int maxHealth, int initiative, int strength, int level, bool isPlayer)
+    public void SetEntityValues(string name, int currHealth, int maxHealth, int initiative, int strength, int level, bool isPlayer, int pointIndex)
     {
         this.name = name;
         this.currHealth = currHealth;
@@ -398,6 +407,7 @@ public class BattleEntities
         this.strength = strength;
         this.level = level;
         this.isPlayer = isPlayer;
+        this.pointIndex = pointIndex;
     }
 
     public void SetTarget(int target)
