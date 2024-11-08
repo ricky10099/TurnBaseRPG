@@ -125,12 +125,15 @@ public class BattleSystem : MonoBehaviour
             BattleEntities currTarget = allBattlers[currAttacker.target];
             AttackAction(currAttacker, currTarget);
             yield return new WaitForSeconds(TURN_DURATION);
+            currAttacker.battleVisuals.transform.position = partySpawnPoints[currAttacker.pointIndex].position;
 
             if (currTarget.currHealth <= 0)
             {
                 bottomText.text = string.Format("{0} が {1} を倒しました", currAttacker.name, currTarget.name);
                 yield return new WaitForSeconds(TURN_DURATION);
                 enemyBattlers.Remove(currTarget);
+
+                yield return StartCoroutine(GetExpRoutine(currTarget.currExp));
                 //allBattlers.Remove(currTarget);
 
                 if (enemyBattlers.Count <= 0)
@@ -152,6 +155,7 @@ public class BattleSystem : MonoBehaviour
 
             AttackAction(currAttacker, currTarget);
             yield return new WaitForSeconds(TURN_DURATION);
+            currAttacker.battleVisuals.transform.position = enemySpawnPoints[currAttacker.pointIndex].position;
 
             if (currTarget.currHealth <= 0)
             {
@@ -193,6 +197,21 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    private IEnumerator GetExpRoutine(int exp)
+    {
+        Debug.Log("exp: " + exp);
+        //bottomText.text = string.Format("経験値: " + exp);
+        int gainExp = Mathf.RoundToInt(exp / partyManager.GetCurrentParty().Count);
+
+        for(int i = 0; i < partyManager.GetCurrentParty().Count; ++i)
+        {
+            bottomText.text = string.Format("{0}経験値: {1}", partyManager.GetCurrentParty()[i].memberName, gainExp);
+            partyManager.GetCurrentParty()[i].currExp += gainExp;
+        }
+
+        yield return new WaitForSeconds(TURN_DURATION);
+    }
+
     private void RemoveDeadBattlers()
     {
         for(int i = 0; i < allBattlers.Count; ++i)
@@ -211,11 +230,22 @@ public class BattleSystem : MonoBehaviour
         for (int i = 0; i < currentParty.Count; ++i)
         {
             BattleEntities tempEntity = new BattleEntities();
-            tempEntity.SetEntityValues(currentParty[i].memberName, currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].initiative, currentParty[i].strength, currentParty[i].level, true, i);
+            tempEntity.SetEntityValues(
+                currentParty[i].memberName,
+                currentParty[i].currHealth,
+                currentParty[i].maxHealth,
+                currentParty[i].initiative,
+                currentParty[i].strength,
+                currentParty[i].level,
+                currentParty[i].currExp,
+                currentParty[i].levelUpExp,
+                true,
+                i
+            );
             Debug.Log("party " + i);
             BattleVisuals tempBattleVisuals = Instantiate(currentParty[i].memberBattleVisualPrefab, partySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
-            tempBattleVisuals.SetStartingValues(currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].level, currentParty[i].currExp, currentParty[i].maxExp);
+            tempBattleVisuals.SetStartingValues(currentParty[i].currHealth, currentParty[i].maxHealth, currentParty[i].level, currentParty[i].currExp, currentParty[i].levelUpExp);
             tempEntity.battleVisuals = tempBattleVisuals;
 
             allBattlers.Add(tempEntity);
@@ -230,7 +260,18 @@ public class BattleSystem : MonoBehaviour
         for (int i = 0; i < currentEnemies.Count; ++i)
         {
             BattleEntities tempEntity = new BattleEntities();
-            tempEntity.SetEntityValues(currentEnemies[i].enemyName, currentEnemies[i].currHealth, currentEnemies[i].maxHealth, currentEnemies[i].initiative, currentEnemies[i].strength, currentEnemies[i].level, false, i);
+            tempEntity.SetEntityValues(
+                currentEnemies[i].enemyName,
+                currentEnemies[i].currHealth,
+                currentEnemies[i].maxHealth,
+                currentEnemies[i].initiative,
+                currentEnemies[i].strength,
+                currentEnemies[i].level,
+                currentEnemies[i].exp,
+                0,
+                false,
+                i
+            );
             Debug.Log("enemy " + i);
             BattleVisuals tempBattleVisuals = Instantiate(currentEnemies[i].enemyVisualPrefab, enemySpawnPoints[i].position, Quaternion.identity).GetComponent<BattleVisuals>();
 
@@ -295,12 +336,18 @@ public class BattleSystem : MonoBehaviour
     private void AttackAction(BattleEntities currAttacker, BattleEntities currTarget)
     {
         int damage = currAttacker.strength;
-        currAttacker.battleVisuals.GetComponentInParent<GameObject>().transform.position = partyAttackPoints[currTarget.pointIndex].position;
+        if (currAttacker.isPlayer)
+        {
+            currAttacker.battleVisuals.transform.position = partyAttackPoints[currTarget.pointIndex].position;
+        }
+        else
+        {
+            currAttacker.battleVisuals.transform.position = enemyAttackPoints[currTarget.pointIndex].position;
+        }
         currAttacker.battleVisuals.PlayAttackAnimation();
         currTarget.currHealth -= damage;
         currTarget.battleVisuals.PlayHitAnimation();
         currTarget.UpdateUI();
-        currAttacker.battleVisuals.GetComponentInParent<GameObject>().transform.position = partySpawnPoints[currAttacker.pointIndex].position;
         bottomText.text = string.Format("{0} が {1} を攻撃し、{2} ダメージを与えました", currAttacker.name, currTarget.name, damage);
         SaveHealth();
     }
@@ -393,12 +440,14 @@ public class BattleEntities
     public int initiative;
     public int strength;
     public int level;
+    public int currExp;
+    public int levelUpExp;
     public bool isPlayer;
     public BattleVisuals battleVisuals;
     public int target;
     public int pointIndex;
 
-    public void SetEntityValues(string name, int currHealth, int maxHealth, int initiative, int strength, int level, bool isPlayer, int pointIndex)
+    public void SetEntityValues(string name, int currHealth, int maxHealth, int initiative, int strength, int level, int currExp, int levelUpExp, bool isPlayer,int pointIndex)
     {
         this.name = name;
         this.currHealth = currHealth;
@@ -406,6 +455,8 @@ public class BattleEntities
         this.initiative = initiative;
         this.strength = strength;
         this.level = level;
+        this.currExp = currExp;
+        this.levelUpExp = levelUpExp;
         this.isPlayer = isPlayer;
         this.pointIndex = pointIndex;
     }

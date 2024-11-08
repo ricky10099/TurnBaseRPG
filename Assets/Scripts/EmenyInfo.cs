@@ -9,5 +9,6 @@ public class EnemyInfo : ScriptableObject
     public int baseHealth;
     public int baseStr;
     public int baseInitiative;
+    public int baseExp;
     public GameObject enemyVisualPrefab;
 }

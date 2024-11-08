@@ -10,6 +10,8 @@ public class PartyMemberInfo : ScriptableObject
     public int baseHealth;
     public int baseStr;
     public int baseInitiative;
+    public int currExp;
+    public int levelUpExp;
     public GameObject memberBattleVisualPrefab;
     public GameObject memberOverworldVisualPrefab;
 }

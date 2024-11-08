@@ -824,12 +824,12 @@ MonoBehaviour:
   state: 0
   partySpawnPoints:
   - {fileID: 664430759}
-  - {fileID: 2048572182}
   - {fileID: 1560989071}
+  - {fileID: 2048572182}
   enemySpawnPoints:
   - {fileID: 1044190104}
-  - {fileID: 1029668342}
   - {fileID: 821417779}
+  - {fileID: 1029668342}
   partyAttackPoints:
   - {fileID: 1150398672}
   - {fileID: 699232205}

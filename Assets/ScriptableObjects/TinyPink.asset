@@ -17,6 +17,8 @@ MonoBehaviour:
   baseHealth: 10
   baseStr: 2
   baseInitiative: 7
+  currExp: 0
+  levelUpExp: 5
   memberBattleVisualPrefab: {fileID: 4234752221089684249, guid: 26190801ffc7da745875f81a4a5bb4fe,
     type: 3}
   memberOverworldVisualPrefab: {fileID: 5769776078925408081, guid: 627f88c6a42235b40821bb8aad44b8cd,

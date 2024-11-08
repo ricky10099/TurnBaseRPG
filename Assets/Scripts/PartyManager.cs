@@ -40,6 +40,8 @@ public class PartyManager : MonoBehaviour
                 newPartyMember.maxHealth = newPartyMember.currHealth;
                 newPartyMember.strength = allMembers[i].baseStr;
                 newPartyMember.initiative = allMembers[i].baseInitiative;
+                newPartyMember.currExp = allMembers[i].currExp;
+                newPartyMember.levelUpExp = allMembers[i].levelUpExp * allMembers[i].startingLevel;
                 newPartyMember.memberBattleVisualPrefab = allMembers[i].memberBattleVisualPrefab;
                 newPartyMember.memberOverworldVisualPrefab = allMembers[i].memberOverworldVisualPrefab;
 
@@ -93,7 +95,7 @@ public class PartyMember
     public int strength;
     public int initiative;
     public int currExp;
-    public int maxExp;
+    public int levelUpExp;
     public GameObject memberBattleVisualPrefab;
     public GameObject memberOverworldVisualPrefab;
 }
