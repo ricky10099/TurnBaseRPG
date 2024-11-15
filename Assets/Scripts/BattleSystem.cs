@@ -207,6 +207,17 @@ public class BattleSystem : MonoBehaviour
         {
             bottomText.text = string.Format("{0}ŒoŒ±’l: {1}", partyManager.GetCurrentParty()[i].memberName, gainExp);
             partyManager.GetCurrentParty()[i].currExp += gainExp;
+            if(partyManager.GetCurrentParty()[i].currExp >= partyManager.GetCurrentParty()[i].levelUpExp)
+            {
+                partyManager.GetCurrentParty()[i].level++;
+                partyManager.GetCurrentParty()[i].currExp -= partyManager.GetCurrentParty()[i].levelUpExp;
+
+                partyManager.GetCurrentParty()[i].currHealth += Mathf.RoundToInt(0.5f * partyManager.GetCurrentParty()[i].level * partyManager.GetCurrentParty()[i].baseHealth);
+                partyManager.GetCurrentParty()[i].maxHealth += Mathf.RoundToInt(0.5f * partyManager.GetCurrentParty()[i].level * partyManager.GetCurrentParty()[i].baseHealth);
+                partyManager.GetCurrentParty()[i].strength += Mathf.RoundToInt(0.5f * partyManager.GetCurrentParty()[i].level * partyManager.GetCurrentParty()[i].baseStrength);
+                partyManager.GetCurrentParty()[i].initiative += Mathf.RoundToInt(0.5f * partyManager.GetCurrentParty()[i].level * partyManager.GetCurrentParty()[i].baseInitiative);
+                partyManager.GetCurrentParty()[i].levelUpExp += Mathf.RoundToInt(0.5f * partyManager.GetCurrentParty()[i].level * partyManager.GetCurrentParty()[i].levelUpExp);
+            }
         }
 
         yield return new WaitForSeconds(TURN_DURATION);

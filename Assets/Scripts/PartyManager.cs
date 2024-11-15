@@ -36,12 +36,15 @@ public class PartyManager : MonoBehaviour
                 PartyMember newPartyMember = new PartyMember();
                 newPartyMember.memberName = allMembers[i].memberName;
                 newPartyMember.level = allMembers[i].startingLevel;
-                newPartyMember.currHealth = allMembers[i].baseHealth;
+                newPartyMember.baseHealth = allMembers[i].baseHealth;
+                newPartyMember.currHealth = allMembers[i].baseHealth + Mathf.RoundToInt(0.5f * allMembers[i].startingLevel * allMembers[i].baseHealth);
                 newPartyMember.maxHealth = newPartyMember.currHealth;
-                newPartyMember.strength = allMembers[i].baseStr;
-                newPartyMember.initiative = allMembers[i].baseInitiative;
+                newPartyMember.baseStrength = allMembers[i].baseStr;
+                newPartyMember.strength = allMembers[i].baseStr + Mathf.RoundToInt(0.5f * allMembers[i].startingLevel * allMembers[i].baseStr);
+                newPartyMember.baseInitiative = allMembers[i].baseInitiative;
+                newPartyMember.initiative = allMembers[i].baseInitiative + Mathf.RoundToInt(0.5f * allMembers[i].startingLevel * allMembers[i].baseInitiative);
                 newPartyMember.currExp = allMembers[i].currExp;
-                newPartyMember.levelUpExp = allMembers[i].levelUpExp * allMembers[i].startingLevel;
+                newPartyMember.levelUpExp = allMembers[i].levelUpExp + Mathf.RoundToInt(0.5f * allMembers[i].startingLevel * allMembers[i].levelUpExp);
                 newPartyMember.memberBattleVisualPrefab = allMembers[i].memberBattleVisualPrefab;
                 newPartyMember.memberOverworldVisualPrefab = allMembers[i].memberOverworldVisualPrefab;
 
@@ -90,10 +93,14 @@ public class PartyMember
 {
     public string memberName;
     public int level;
+    public int baseHealth;
     public int currHealth;
     public int maxHealth;
+    public int baseStrength;
     public int strength;
+    public int baseInitiative;
     public int initiative;
+    public int baseExp;
     public int currExp;
     public int levelUpExp;
     public GameObject memberBattleVisualPrefab;
